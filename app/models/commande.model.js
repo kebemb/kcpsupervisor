@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const StudentSchema = mongoose.Schema({
+const CommandeSchema = mongoose.Schema({
     image: String,
     firstName: String,
     lastName: String,
@@ -13,4 +13,4 @@ const StudentSchema = mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Student', StudentSchema);
+module.exports = mongoose.model('Commande', CommandeSchema);
