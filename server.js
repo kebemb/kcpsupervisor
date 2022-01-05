@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 var cors = require('cors');
+require('dotenv').config() 
 
 
 // create express app
@@ -20,7 +21,7 @@ app.use(bodyParser.json())
 
 mongoose.Promise = global.Promise;
 // Connecting to the database
-mongoose.connect(dbConfig.url, {
+mongoose.connect(`mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:27017/${process.env.MONGODB_DATABASE}?authSource=admin`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -32,7 +33,7 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to lmks application."});
+    res.json({"message": "Hello!!!."});
 });
 // adding routes
 require('./app/routes/commande.routes.js')(app);

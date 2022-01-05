@@ -3,22 +3,20 @@ const _Commande = require('../models/commande.model.js');
 // Create and Save a new commande
 exports.create = (req, res) => {
     // Validate request
-    if(!req.body.lastName||!req.body.firstName||!req.body.gender||!req.body.image||!req.body.birthDate||!req.body.birthAddress||!req.body.address) {
+    if(!req.body.clientLastName||!req.body.clientFirstName||!req.body.command||!req.body.address) {
         console.log("infos commande incompletes")
         return res.status(400).send({
-            message: "commande ne peut etre nul"
+            message: "infos commande incompletes"
         });
     }
 
     // Create a commande
     const commande_ = new _Commande({
-        firstName: req.body.firstName || "Untitled commande", 
-        lastName: req.body.lastName,
-        gender: req.body.gender,
-        birthAddress: req.body.birthAddress,
-        birthDate: req.body.birthDate,
-        image: req.body.image,
-        address: req.body.address,
+        clientFirstName: req.body.clientFirstName , 
+        clientLastName: req.body.clientLastName,
+        date: Date.now(),
+        command: req.body.command,
+        address: req.body.address
 
     });
 
@@ -70,22 +68,20 @@ exports.findOne = (req, res) => {
 // Update a commande identified by the commandeId in the request
 exports.update = (req, res) => {
     // Validate Request
-    if(!req.body.lastName||!req.body.firstName||!req.body.gender||!req.body.image||!req.body.birthDate||!req.body.birthAddress||!req.body.address) {
+    if(!req.body.clientLastName||!req.body.clientFirstName||!req.body.command||!req.body.address) {
         console.log("infos commande incompletes")
         return res.status(400).send({
-            message: "commande ne peut etre nul"
+            message: "infos commande incompletes"
         });
     }
 
     // Find commande and update it with the request body
     _Commande.findByIdAndUpdate(req.params.commandeId, {
-        firstName: req.body.firstName || "Untitled commande", 
-        lastName: req.body.lastName,
-        gender: req.body.gender,
-        birthAddress: req.body.birthAddress,
-        birthDate: req.body.birthDate,
-        image: req.body.image,
-        address: req.body.address,
+        clientFirstName: req.body.clientFirstName , 
+        clientLastName: req.body.clientLastName,
+        date: Date.now(),
+        command: req.body.command,
+        address: req.body.address
     }, {new: true})
     .then(commande => {
         if(!commande) {

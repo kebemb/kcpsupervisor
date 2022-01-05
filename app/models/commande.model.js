@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 
 const CommandeSchema = mongoose.Schema({
-    image: String,
-    firstName: String,
-    lastName: String,
-    gender: String,
-    birthDate: String,
-    birthAddress: String,
+    command: String,
+    clientFirstName: String,
+    clientLastName: String,
+    date: String,
     address: String
 
 }, {
