@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
     res.json({"message": "Hello!!!."});
 });
 // adding routes
-require('./app/routes/commande.routes.js')(app);
+require('./app/routes/kcpSupervisors.routes.js')(app);
 
 
 
