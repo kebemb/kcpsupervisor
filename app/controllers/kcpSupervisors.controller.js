@@ -1,23 +1,27 @@
 const _kcpSupervisor = require('../models/kcpSupervisors.model.js');
+const fs = require('fs');
 
 // Create and Save a new kcpSupervisor
 exports.create = (req, res) => {
     // Validate request
+    /*
     if(!req.body.dateNumeric||!req.body.filename||!req.body.pli_num||!req.body.pli_name) {
         console.log("infos du fichier incomplets")
         return res.status(400).send({
             message: "infos du fichier incompletes"
         });
     }
-
+*/
+filedata = getFiles('./directory/test.txt');
+data= filedata.split(';')
     // Create a kcpSupervisor
     const kcpSupervisor_ = new _kcpSupervisor({
-        dateNumeric: req.body.dateNumeric,
-        pli_num: req.body.pli_num,
-        pli_name: req.body.pli_name,
-        filename: req.body.filename,
-        state: req.body.state,
-        file_path: req.body.file_path
+        filename: data[0],
+        dateNumeric: data[1],
+        pli_num: data[2],
+        pli_name: data[3],
+        state: data[4],
+        file_path: data[5],
     });
 
     // Save kcpSupervisor in the database
@@ -122,4 +126,18 @@ exports.delete = (req, res) => {
             message: "Impossible de supprimer un eleve avec cet indentifiant " + req.params.kcpSupervisorId
         });
     });
+};
+
+
+function getFiles(FILE_PATH){
+
+try {
+  const data = fs.readFileSync(FILE_PATH, 'utf8');
+  console.log(data);
+
+  return data
+} catch (err) {
+  console.error(err);
+  return null;
+}
 };

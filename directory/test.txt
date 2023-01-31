@@ -1,0 +1,1 @@
+"mytestfile";"2023-01-03";20;"testpli";"ok";"/my/file/path"
