@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <i class="fa-solid fa-house-chimney"></i>
+          Accueil</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link invisible" aria-current="page" href="#"
+                >Les plis ok</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link invisible" href="#">Les plis KO</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+              Se déconnecter
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <a href="index.html"
+      ><button type="button" class="btn btn-primary mt-5">
+        Retourner à la page d'accueil
+      </button></a
+    >
+    <div class="container col-6 mt-5">
+      <legend>
+        <span class="badge bg-primary"> <h3>Détails du pli</h3> </span>
+      </legend>
+      <ul class="list-group">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Date du pli :
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Numéro du pli :
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Nom du pli :
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Etat du pli :
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Images:
+          <img src="" class="rounded float-start" alt="..." />
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Commentaires :
+        </li>
+      </ul>
+    </div>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/f964d94d98.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
